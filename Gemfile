@@ -14,6 +14,7 @@ gem 'httparty'
 gem 'figaro'
 gem 'haversine'
 
+
 group :development, :test do
  gem 'sqlite3'
  gem 'byebug'
@@ -25,5 +26,6 @@ group :development, :test do
 end
 group :production do 
  gem 'pg', '~> 0.18.2'
+ gem 'rollbar'
 end
 
