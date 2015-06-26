@@ -11,3 +11,10 @@ json.name    b[0]
 json.long    b[1]
 json.lat     b[2]
 end
+
+json.trains_incoming @train do |t|
+json.destination  t[0]
+json.line         t[1]
+json.station      t[2]
+json.min          t[3]
+end

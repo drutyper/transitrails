@@ -21,5 +21,10 @@ class TrainApi
     #     }).first_or_create!
     end
   end
+
+  def trains_incoming
+    t = TrainApi.get("/StationPrediction.svc/json/GetPrediction/All", query: { api_key: "#{Token}" })
+    train = t["Trains"].map { |n| n.values_at("Destination", "Line", "LocationName", "Min") }
+  end
 end
 

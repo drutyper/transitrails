@@ -6,6 +6,9 @@ class StationsController < ApplicationController
 
     b = BikeApi.new
     @bike = b.bike_stations
+
+    s = TrainApi.new
+    @train = s.trains_incoming
   end
 
   def show
