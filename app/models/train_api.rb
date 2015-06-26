@@ -6,9 +6,9 @@ class TrainApi
 
   def metro_stations
     station = TrainApi.get("/Rail.svc/json/jStations", query: { api_key: "#{Token}" })
-    m = station["Stations"].map {|s| s.values_at("Name","Lat","Lon","Code","Address")}
+    m = station["Stations"].map {|s| s.values_at("Name", "Lon", "Lat", "Code", "Address")}
     m.each do |s|
-      TrainStation.create! code: s[0], name: s[1], lat: s[2], long: s[3], address: s[4] 
+      TrainStation.create! name: s[0], long: s[1], lat: s[2], code: s[3], address: s[4] 
 
     # station = TrainApi.get("/Rail.svc/json/jStations", query: { api_key: "#{Token}" })
     # station["Stations"].each do |s|
